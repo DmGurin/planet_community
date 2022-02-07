@@ -26,42 +26,62 @@ class _SunProfileScreenState extends State<SunProfileScreen> {
               ],
             ),
           ),
-          child: Column(
+          child: Stack(
+            fit: StackFit.expand,
             children: [
-              const SizedBox(
-                height: 5,
-              ),
-              const Text(
-                'data',
-                style: AppTextStyle.textStyle96w700,
-              ),
-              const Text(
-                'data',
-                style: AppTextStyle.textStyle14w700,
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 23),
-                height: 39,
-                width: 40,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 0.9,
-                    color: AppColors.white,
-                  ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(100),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  //margin: EdgeInsets.only( bottom: 20),
+                  //padding: EdgeInsets.all(20),
+                  height: 500,
+                  width: 400,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AppImages.sunbig),
+                    ),
                   ),
                 ),
-                child: const Center(
-                    child: Text(
-                  '360 VIEW',
-                  style: AppTextStyle.textStyle18w700,
-                  textAlign: TextAlign.center,
-                )),
               ),
-              const Spacer(),
-              Image.asset(AppImages.sunbig),
-              const Spacer(),
+              Column(
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  const Text(
+                    'data',
+                    style: AppTextStyle.textStyle96w700,
+                  ),
+                  const Text(
+                    'data',
+                    style: AppTextStyle.textStyle14w700,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 23),
+                    height: 39,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 0.9,
+                        color: AppColors.white,
+                      ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(100),
+                      ),
+                    ),
+                    child: const Center(
+                        child: Text(
+                      '360 VIEW',
+                      style: AppTextStyle.textStyle18w700,
+                      textAlign: TextAlign.center,
+                    )),
+                  ),
+                  const Spacer(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
             ],
           ),
         ),

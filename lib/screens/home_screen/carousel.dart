@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:planet_community/screens/home_screen/screen.dart';
 import 'package:planet_community/screens/venus_screen/screen.dart';
 import 'package:planet_community/source/constants.dart';
 import 'package:planet_community/style/app_colors.dart';
@@ -18,21 +17,26 @@ class CarouselScreen extends StatefulWidget {
 class _CarouselScreenState extends State<CarouselScreen> {
   final List<Widget> imageSliders = carouselList
       .map(
-        (item) => Container(
-          margin: const EdgeInsets.all(5.0),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset(item.image, fit: BoxFit.cover, width: 1000.0),
-              Positioned(
-                bottom: 0.0,
-                child: Text(
-                  item.name,
-                  style: AppTextStyle.textStyle24w700
-                      .copyWith(color: Colors.white),
+        (item) => GestureDetector(
+          onTap: (){
+             item.route;
+          },
+          child: Container(
+            margin: const EdgeInsets.all(5.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(item.image, fit: BoxFit.cover, width: 1000.0),
+                Positioned(
+                  bottom: 0.0,
+                  child: Text(
+                    item.name,
+                    style: AppTextStyle.textStyle24w700
+                        .copyWith(color: Colors.white),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       )
