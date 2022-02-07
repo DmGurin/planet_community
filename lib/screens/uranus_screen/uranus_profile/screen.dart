@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:planet_community/screens/uranus_screen/uranus_dialog/u_dialog.dart';
 import 'package:planet_community/screens/uranus_screen/uranus_dialog/ur_dialog.dart';
 import 'package:planet_community/screens/uranus_screen/uranus_dialog/ura_dialog.dart';
+import 'package:planet_community/screens/uranus_screen/uranus_dialog/uran_dialog.dart';
 import 'package:planet_community/screens/uranus_screen/uranus_dialog/uranus_dialog.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/source/svg.dart';
@@ -67,11 +69,44 @@ class _UranusProfileScreenState extends State<UranusProfileScreen> {
                   AppImages.biguranus,
                 ),
                 Positioned(
+                  right: 75,
+                  top: 160,
+                  child: GestureDetector(
+                    onTap: (){
+                      uDialog(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(top: 9),
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: const Offset(
+                                  0, 1), // changes position of shadow
+                            ),
+                          ],
+                          color: AppColors.botBlue,
+                          borderRadius:
+                          const BorderRadius.all(Radius.circular(100))),
+                      child: Center(
+                        child: SvgPicture.asset(
+                          AppSvg.plus,
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
                   left: 150,
                   bottom: 400,
                   child: GestureDetector(
                     onTap: (){
-
+                      uranDialog(context);
                     },
                     child: Container(
                       padding: const EdgeInsets.only(top: 9),
