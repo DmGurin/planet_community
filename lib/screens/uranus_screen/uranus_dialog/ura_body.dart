@@ -15,6 +15,7 @@ class _UraBodyState extends State<UraBody> {
     return Padding(
       padding: const EdgeInsets.all(30.0),
       child: Column(
+        verticalDirection: VerticalDirection.down,
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
