@@ -1,22 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planet_community/screens/earthquake_screen/earthquake_screen.dart';
-import 'package:planet_community/screens/temperature_screen/temperature_screen.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
-class MarsDialogBody extends StatefulWidget {
-  const MarsDialogBody({Key? key,
-    required this.onTap,
+class CustomDialogBody extends StatefulWidget {
+  const CustomDialogBody({Key? key,
+    required this.onTapRightButton,
+    required this.onTapLeftButton,
   }) : super(key: key);
-  final Function onTap;
+  final Function onTapRightButton;
+  final Function onTapLeftButton;
 
   @override
-  _MarsDialogBodyState createState() => _MarsDialogBodyState();
+  _CustomDialogBodyState createState() => _CustomDialogBodyState();
 }
 
-class _MarsDialogBodyState extends State<MarsDialogBody> {
+class _CustomDialogBodyState extends State<CustomDialogBody> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -51,8 +51,7 @@ class _MarsDialogBodyState extends State<MarsDialogBody> {
                 GestureDetector(
                   onTap: (){
                     Navigator.pop(context);
-                    widget.onTap( Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const TemperatureScreen())));
+                    widget.onTapLeftButton();
                   },
                   child: Column(
                     children: [
@@ -96,8 +95,7 @@ class _MarsDialogBodyState extends State<MarsDialogBody> {
                 GestureDetector(
                   onTap: (){
                     Navigator.pop(context);
-                    widget.onTap( Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const EarthQuakeScreen())));
+                    widget.onTapRightButton();
                   },
                   child: Column(
                     children: [

@@ -7,28 +7,29 @@ import 'package:planet_community/screens/uranus_screen/screen.dart';
 import 'package:planet_community/screens/venus_screen/screen.dart';
 import 'package:planet_community/source/images.dart';
 
-List<CarouselEntity> carouselList = [
-  CarouselEntity(
+List<PlanetEntity> planetList = [
+  PlanetEntity(
     name: 'MARS',
     image: AppImages.mars,
     route: const MarsScreen(),
+
 ),
-  CarouselEntity(
+  PlanetEntity(
     name: 'EARTH',
     image: AppImages.earth,
     route: const EarthScreen(),
   ),
-  CarouselEntity(
+  PlanetEntity(
     name: 'JUPITER',
     image: AppImages.jupiter,
     route: const JupiterScreen(),
   ),
-  CarouselEntity(
+  PlanetEntity(
     name: 'URANUS',
     image: AppImages.uranus,
     route: const UranusScreen(),
   ),
-  CarouselEntity(
+  PlanetEntity(
     name: 'VENUS',
     image: AppImages.venus,
     route: const VenusScreen(),

@@ -15,7 +15,7 @@ class CarouselScreen extends StatefulWidget {
 }
 
 class _CarouselScreenState extends State<CarouselScreen> {
-  final List<Widget> imageSliders = carouselList
+  final List<Widget> imageSliders = planetList
       .map(
         (item) => GestureDetector(
           onTap: (){
@@ -95,7 +95,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
                       Opacity(
                         opacity: oldIndex == index ? 1 : 0.5,
                         child: Image.asset(
-                          carouselList[index].image,
+                          planetList[index].image,
                           fit: BoxFit.cover,
                           width: MediaQuery.of(context).size.width * 0.7,
                         ),
@@ -103,7 +103,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
                       Positioned(
                         bottom: 0.0,
                         child: Text(
-                          carouselList[index].name,
+                          planetList[index].name,
                           style: AppTextStyle.textStyle24w700
                               .copyWith(color: Colors.white),
                         ),

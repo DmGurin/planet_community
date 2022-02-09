@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:planet_community/screens/earthquake_screen/earthquake_screen.dart';
 import 'package:planet_community/screens/mars_screen/mars_profile/mars_dialog.dart';
-import 'package:planet_community/screens/venus_screen/screen.dart';
+import 'package:planet_community/screens/temperature_screen/temperature_screen.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/source/svg.dart';
 import 'package:planet_community/style/app_colors.dart';
@@ -74,7 +75,19 @@ class _MarsProfileScreenState extends State<MarsProfileScreen> {
                     right: 35,
                     child: GestureDetector(
                       onTap: () {
-                        marsDialog(context, (){},);
+                        customDialog(
+                          context: context,
+                          onTapLeftButton: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const TemperatureScreen(),
+                            ),
+                          ),
+                          onTapRightButton: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const EarthQuakeScreen(),
+                            ),
+                          ),
+                        );
                       },
                       child: Container(
                         padding: const EdgeInsets.only(top: 9),
@@ -107,8 +120,19 @@ class _MarsProfileScreenState extends State<MarsProfileScreen> {
                     left: 95,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const VenusScreen()));
+                        customDialog(
+                          context: context,
+                          onTapLeftButton: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const TemperatureScreen(),
+                            ),
+                          ),
+                          onTapRightButton: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const EarthQuakeScreen(),
+                            ),
+                          ),
+                        );
                       },
                       child: Container(
                         padding: const EdgeInsets.only(top: 9),
