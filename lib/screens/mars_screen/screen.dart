@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:planet_community/screens/mars_screen/mars_profile/screen.dart';
+import 'package:planet_community/source/constants.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
 class MarsScreen extends StatefulWidget {
-  const MarsScreen({Key? key}) : super(key: key);
+  const MarsScreen({Key? key,
+  }) : super(key: key);
+
 
   @override
   State<MarsScreen> createState() => _MarsScreenState();
@@ -17,7 +20,15 @@ class _MarsScreenState extends State<MarsScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            'PLANETA',
+            style: AppTextStyle.textStyle16w700,
+          ),
+          backgroundColor: AppColors.darkBlue,
+          elevation: 0.0,
+        ),
         body:
         Container(
           decoration: const BoxDecoration(
@@ -36,15 +47,7 @@ class _MarsScreenState extends State<MarsScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
-                  height: 16.8,
-                ),
-                const Text(
-                  'PLANETA',
-                  style: AppTextStyle.textStyle16w700,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  height: 53.01,
+                  height: 35,
                 ),
                 const Text(
                   'Mars',
@@ -128,7 +131,7 @@ class _MarsScreenState extends State<MarsScreen> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const MarsProfileScreen()));
+                        MaterialPageRoute(builder: (context) =>  MarsProfileScreen(index: planetList.length)));
                   },
                   child: Container(
                     child: const Center(

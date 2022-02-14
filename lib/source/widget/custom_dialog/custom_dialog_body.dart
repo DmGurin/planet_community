@@ -8,9 +8,17 @@ class CustomDialogBody extends StatefulWidget {
   const CustomDialogBody({Key? key,
     required this.onTapRightButton,
     required this.onTapLeftButton,
+    required this.minTemp,
+    required this.maxTemp,
+    required this.minQuake,
+    required this.maxQuake,
   }) : super(key: key);
   final Function onTapRightButton;
   final Function onTapLeftButton;
+  final String minTemp;
+  final String maxTemp;
+  final String minQuake;
+  final String maxQuake;
 
   @override
   _CustomDialogBodyState createState() => _CustomDialogBodyState();
@@ -57,15 +65,15 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children:  [
                           SizedBox(
                               width: 100,
                               child: Text(
-                                '2 \u00b0',
+                                widget.minTemp,
                                 style: AppTextStyle.textStyle14w700,
                               )),
                           Text(
-                            '13 \u00b0',
+                            widget.maxTemp,
                             style: AppTextStyle.textStyle14w700,
                           ),
                         ],
@@ -101,15 +109,15 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children:  [
                           SizedBox(
                               width: 100,
                               child: Text(
-                                '8.1 \u00b0',
+                                widget.maxQuake,
                                 style: AppTextStyle.textStyle14w700,
                               )),
                           Text(
-                            '3.4 \u00b0',
+                            widget.minQuake,
                             style: AppTextStyle.textStyle14w700,
                           ),
                         ],

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:planet_community/source/constants.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
+
+import 'jupiter_profile/screen.dart';
 
 class JupiterScreen extends StatefulWidget {
   const JupiterScreen({Key? key}) : super(key: key);
@@ -14,6 +17,15 @@ class _JupiterScreenState extends State<JupiterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'PLANETA',
+          style: AppTextStyle.textStyle16w700,
+        ),
+        backgroundColor: AppColors.darkBlue,
+        elevation: 0.0,
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -31,14 +43,7 @@ class _JupiterScreenState extends State<JupiterScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                height: 16.8,
-              ),
-              const Text(
-                'PLANETA',
-                style: AppTextStyle.textStyle16w700,
-              ),
-              const SizedBox(
-                height: 53.01,
+                height: 35,
               ),
               const Text(
                 'JUPITER',
@@ -117,19 +122,31 @@ class _JupiterScreenState extends State<JupiterScreen> {
                 ],
               ),
               const Spacer(),
-             Container(
-                height: 47,
-                width: 131,
-                decoration: const BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.black,
-                      spreadRadius: 1,
-                      blurRadius: 3,
-                      offset: Offset (0,1),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) =>  JupiterProfileScreen(index: planetList.length)));
+                },
+                child: Container(
+                  child: const Center(
+                    child: Text(
+                      'START TOUR',
+                      style: AppTextStyle.textStyle18w700,
+                      textAlign: TextAlign.center,
                     ),
-                  ],
-                    gradient: LinearGradient(
+                  ),
+                  width: 131,
+                  height: 47,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: const Offset(0, 1), // changes position of shadow
+                      ),
+                    ],
+                    gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
@@ -137,9 +154,8 @@ class _JupiterScreenState extends State<JupiterScreen> {
                         AppColors.darkBlue,
                       ],
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: const Center(
-                  child: Text('START TOUR', style: AppTextStyle.textStyle18w700,),
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                  ),
                 ),
               ),
               const SizedBox(

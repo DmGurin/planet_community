@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:planet_community/screens/earthquake_screen/earthquake_screen.dart';
-import 'package:planet_community/screens/mars_screen/mars_profile/mars_dialog.dart';
+import 'package:planet_community/source/widget/custom_dialog/custom_dialog.dart';
 import 'package:planet_community/screens/temperature_screen/temperature_screen.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/source/svg.dart';
@@ -9,7 +9,10 @@ import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
 class MarsProfileScreen extends StatefulWidget {
-  const MarsProfileScreen({Key? key}) : super(key: key);
+  const MarsProfileScreen({Key? key,
+    required this.index,
+  }) : super(key: key);
+  final int index;
 
   @override
   _MarsProfileScreenState createState() => _MarsProfileScreenState();
@@ -77,6 +80,10 @@ class _MarsProfileScreenState extends State<MarsProfileScreen> {
                       onTap: () {
                         customDialog(
                           context: context,
+                          minTemp: '2\u00b0',
+                          maxTemp: '20\u00b0',
+                          minQuake: '3\u00b0',
+                          maxQuake: '4\u00b0',
                           onTapLeftButton: () => Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const TemperatureScreen(),
@@ -122,6 +129,10 @@ class _MarsProfileScreenState extends State<MarsProfileScreen> {
                       onTap: () {
                         customDialog(
                           context: context,
+                          minTemp: '2\u00b0',
+                          maxTemp: '20\u00b0',
+                          minQuake: '3\u00b0',
+                          maxQuake: '4\u00b0',
                           onTapLeftButton: () => Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => const TemperatureScreen(),

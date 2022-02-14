@@ -60,12 +60,13 @@ class _CarouselScreenState extends State<CarouselScreen> {
         child: Column(
           children: [
             const SizedBox(
-              height: 40,
+              height: 80,
             ),
             const Text(
               'SOLAR SYSTEM',
               style: AppTextStyle.textStyle69w700,
             ),
+            const Spacer(),
             const Divider(
               endIndent: 10,
               indent: 10,
@@ -73,6 +74,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
               thickness: 0.8,
               color: AppColors.grey,
             ),
+            const Spacer(),
             Text(
               'JOIN THE JOURNEY',
               style: AppTextStyle.textStyle24w700.copyWith(color: Colors.white),
@@ -87,28 +89,37 @@ class _CarouselScreenState extends State<CarouselScreen> {
               itemCount: imageSliders.length,
               itemBuilder: (ctx, int index, _) {
                 int oldIndex = index;
-                return Container(
-                  margin: const EdgeInsets.all(5.0),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Opacity(
-                        opacity: oldIndex == index ? 1 : 0.5,
-                        child: Image.asset(
-                          planetList[index].image,
-                          fit: BoxFit.cover,
-                          width: MediaQuery.of(context).size.width * 0.7,
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => planetList[index].route));
+                    Navigator.of(context);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.all(5.0),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Opacity(
+                          opacity: oldIndex == index ? 1 : 0.5,
+                          child: Image.asset(
+                            planetList[index].image,
+                            fit: BoxFit.cover,
+                            width: MediaQuery.of(context).size.width * 0.7,
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0.0,
-                        child: Text(
-                          planetList[index].name,
-                          style: AppTextStyle.textStyle24w700
-                              .copyWith(color: Colors.white),
+                        Positioned(
+                          bottom: 0.0,
+                          child: Text(
+                            planetList[index].name,
+                            style: AppTextStyle.textStyle24w700
+                                .copyWith(color: Colors.white),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
@@ -116,40 +127,40 @@ class _CarouselScreenState extends State<CarouselScreen> {
               // imageSliders,
             ),
             const Spacer(),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const VenusScreen()));
-              },
-              child: Container(
-                height: 47,
-                width: 131,
-                child: const Center(
-                  child: (Text(
-                    'START TOUR',
-                    style: AppTextStyle.textStyle16w700,
-                  )),
-                ),
-                decoration: const BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.black,
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: Offset(0, 1),
-                      )
-                    ],
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.lightBlue,
-                        AppColors.darkBlue,
-                      ],
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (context) => const VenusScreen()));
+            //   },
+            //   child: Container(
+            //     height: 47,
+            //     width: 131,
+            //     child: const Center(
+            //       child: (Text(
+            //         'START TOUR',
+            //         style: AppTextStyle.textStyle16w700,
+            //       )),
+            //     ),
+            //     decoration: const BoxDecoration(
+            //         boxShadow: [
+            //           BoxShadow(
+            //             color: AppColors.black,
+            //             spreadRadius: 1,
+            //             blurRadius: 3,
+            //             offset: Offset(0, 1),
+            //           )
+            //         ],
+            //         gradient: LinearGradient(
+            //           begin: Alignment.topCenter,
+            //           end: Alignment.bottomCenter,
+            //           colors: [
+            //             AppColors.lightBlue,
+            //             AppColors.darkBlue,
+            //           ],
+            //         ),
+            //         borderRadius: BorderRadius.all(Radius.circular(30))),
+            //   ),
+            // ),
             const SizedBox(
               height: 40,
             ),

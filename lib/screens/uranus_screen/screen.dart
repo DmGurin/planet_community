@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:planet_community/screens/uranus_screen/uranus_profile/screen.dart';
+import 'package:planet_community/source/constants.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
@@ -14,6 +16,15 @@ class _UranusScreenState extends State<UranusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'PLANETA',
+          style: AppTextStyle.textStyle16w700,
+        ),
+        backgroundColor: AppColors.darkBlue,
+        elevation: 0.0,
+      ),
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -33,14 +44,7 @@ class _UranusScreenState extends State<UranusScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                height: 16.8,
-              ),
-              const Text(
-                'PLANETA',
-                style: AppTextStyle.textStyle16w700,
-              ),
-              const SizedBox(
-                height: 53.01,
+                height: 35,
               ),
               const Text(
                 'URANUS',
@@ -121,19 +125,31 @@ class _UranusScreenState extends State<UranusScreen> {
                 ],
               ),
               const Spacer(),
-              Container(
-                height: 47,
-                width: 131,
-                decoration: const BoxDecoration(
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) =>  UranusProfileScreen(index: planetList.length)));
+                },
+                child: Container(
+                  child: const Center(
+                    child: Text(
+                      'START TOUR',
+                      style: AppTextStyle.textStyle18w700,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  width: 131,
+                  height: 47,
+                  decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 1,
-                        spreadRadius: 3,
-                        color: AppColors.black,
-                        offset: Offset(0, 1)
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: const Offset(0, 1), // changes position of shadow
                       ),
                     ],
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
@@ -141,12 +157,9 @@ class _UranusScreenState extends State<UranusScreen> {
                         AppColors.darkBlue,
                       ],
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: const Center(
-                    child: Text(
-                  'START TOUR',
-                  style: AppTextStyle.textStyle18w700,
-                )),
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 17,

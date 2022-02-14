@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:planet_community/screens/venus_screen/venus_profile/screen.dart';
+import 'package:planet_community/source/constants.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
@@ -16,6 +18,15 @@ class _VenusScreenState extends State<VenusScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            'PLANETA',
+            style: AppTextStyle.textStyle16w700,
+          ),
+          backgroundColor: AppColors.darkBlue,
+          elevation: 0.0,
+        ),
         body: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -35,14 +46,7 @@ class _VenusScreenState extends State<VenusScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
-                  height: 16.8,
-                ),
-                const Text(
-                  'PLANETA',
-                  style: AppTextStyle.textStyle16w700,
-                ),
-                const SizedBox(
-                  height: 53.01,
+                  height: 35,
                 ),
                 const Text(
                   'VENUS',
@@ -121,34 +125,41 @@ class _VenusScreenState extends State<VenusScreen> {
                   ],
                 ),
                const Spacer(),
-                Container(
-                  height: 47,
-                  width: 131,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) =>  VenusProfileScreen(index: planetList.length)));
+                  },
+                  child: Container(
+                    child: const Center(
+                      child: Text(
+                        'START TOUR',
+                        style: AppTextStyle.textStyle18w700,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    width: 131,
+                    height: 47,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: const Offset(0, 1), // changes position of shadow
+                        ),
+                      ],
+                      gradient: const LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
                           AppColors.lightBlue,
                           AppColors.darkBlue,
-                        ]),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(30),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.black,
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: Offset(0, 1),
+                        ],
                       ),
-                    ],
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    ),
                   ),
-                  child: const Center(
-                      child: Text(
-                    'START TOUR',
-                    style: AppTextStyle.textStyle18w700,
-                  )),
                 ),
                 const SizedBox(
                   height: 17,
