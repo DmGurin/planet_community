@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:planet_community/screens/earthquake_screen/earthquake_screen.dart';
-import 'package:planet_community/source/widget/custom_dialog/custom_dialog.dart';
+import 'package:planet_community/screens/home_screen/carousel_entity.dart';
+import 'package:planet_community/screens/planet_web_view.dart';
 import 'package:planet_community/screens/temperature_screen/temperature_screen.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/source/svg.dart';
+import 'package:planet_community/source/widget/custom_dialog/custom_dialog.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
-class MarsProfileScreen extends StatefulWidget {
-  const MarsProfileScreen({Key? key}) : super(key: key);
+class ProfilePlanetScreen extends StatelessWidget {
+  const ProfilePlanetScreen({
+    Key? key,
+    required this.planet,
+  }) : super(key: key);
 
-  @override
-  _MarsProfileScreenState createState() => _MarsProfileScreenState();
-}
+  final PlanetEntity planet;
 
-class _MarsProfileScreenState extends State<MarsProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,28 +43,36 @@ class _MarsProfileScreenState extends State<MarsProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const Text(
-                'Mars',
+              Text(
+                planet.name,
                 style: AppTextStyle.textStyle96w700,
               ),
               const Text(
                 'THE RED PLANET',
                 style: AppTextStyle.textStyle18w700,
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 10),
-                child: const Center(
-                  child: Text(
-                    '360 VIEW',
-                    style: AppTextStyle.textStyle18w700,
-                    textAlign: TextAlign.center,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PlanetWebView(),
                   ),
                 ),
-                width: 39,
-                height: 40,
-                decoration: BoxDecoration(
-                  border: Border.all(width: 0.9, color: AppColors.white),
-                  borderRadius: const BorderRadius.all(Radius.circular(100)),
+                child: Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  child: const Center(
+                    child: Text(
+                      '360 VIEW',
+                      style: AppTextStyle.textStyle18w700,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  width: 39,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 0.9, color: AppColors.white),
+                    borderRadius: const BorderRadius.all(Radius.circular(100)),
+                  ),
                 ),
               ),
               const Spacer(),
@@ -77,7 +87,7 @@ class _MarsProfileScreenState extends State<MarsProfileScreen> {
                       onTap: () {
                         customDialog(
                           context: context,
-                          minTemp: '2\u00b0',
+                          minTemp: '${planet.minTemp}\u00b0',
                           maxTemp: '20\u00b0',
                           minQuake: '3\u00b0',
                           maxQuake: '4\u00b0',

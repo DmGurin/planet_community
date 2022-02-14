@@ -15,60 +15,13 @@ import 'package:planet_community/screens/venus_screen/venus_profile/screen.dart'
 
 import 'carousel.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  void onItemTapped(int index) {
-    setState(() {
-      controller.jumpToPage(index);
-      currentIndex = index;
-    });
-  }
-
-  PageController controller = PageController(initialPage: 0);
-  int currentIndex = 0;
-
-
-
-  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: PageView(
-          controller: controller,
-          children:  [
-            CarouselScreen(),
-            const VenusScreen(),
-            VenusProfileScreen(index: currentIndex),
-            const JupiterScreen(),
-            JupiterProfileScreen(index: currentIndex),
-            const UranusScreen(),
-            UranusProfileScreen(index: currentIndex),
-            const EarthScreen(),
-            EarthProfileScreen(index: currentIndex),
-            const MarsScreen(),
-            MarsProfileScreen(index: currentIndex ),
-            //MercuryScreen(),
-            //MercuryProfileScreen(),
-            //SunProfileScreen(),
-            //SunScreen(),
-            //TestScreen(),
-            EarthQuakeScreen(),
-            TemperatureScreen(),
-
-
-
-
-
-
-          ],
-        ),
-      ),
+    return const Scaffold(
+      body: CarouselScreen(),
     );
   }
 }

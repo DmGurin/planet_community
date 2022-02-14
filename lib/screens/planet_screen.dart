@@ -1,21 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planet_community/screens/mars_screen/mars_profile/screen.dart';
-import 'package:planet_community/source/constants.dart';
+import 'package:planet_community/screens/home_screen/carousel_entity.dart';
+import 'package:planet_community/screens/profile_planet_screen.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
-class MarsScreen extends StatefulWidget {
-  const MarsScreen({
+class PlanetScreen extends StatelessWidget {
+  const PlanetScreen({
     Key? key,
+    required this.planet,
   }) : super(key: key);
 
-  @override
-  State<MarsScreen> createState() => _MarsScreenState();
-}
+  final PlanetEntity planet;
 
-class _MarsScreenState extends State<MarsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -51,8 +49,8 @@ class _MarsScreenState extends State<MarsScreen> {
                 const SizedBox(
                   height: 35,
                 ),
-                const Text(
-                  'Mars',
+                Text(
+                  planet.name,
                   style: AppTextStyle.textStyle69w700,
                   textAlign: TextAlign.center,
                 ),
@@ -134,8 +132,9 @@ class _MarsScreenState extends State<MarsScreen> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>
-                            const MarsProfileScreen(),
+                        builder: (context) => ProfilePlanetScreen(
+                          planet: planet,
+                        ),
                       ),
                     );
                   },
