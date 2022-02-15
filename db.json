@@ -13,7 +13,7 @@
       "redus": "3,389.5",
       "moons": "PHOBOS, DEIMOS",
       "distance": "229.23 MILLION",
-      "period": "639 DAYS",
+      "period": "639 DAYS"
     },
     {
       "id": 2,
@@ -28,7 +28,7 @@
       "redus": "6378.1",
       "moons": "MOON",
       "distance": "147.12 MILLION",
-      "period": "361 DAYS",
+      "period": "361 DAYS"
     },
     {
       "id": 3,
@@ -43,7 +43,7 @@
       "redus": "69,911",
       "moons": "79 MOONS",
       "distance": "746.89 MILLION",
-      "period": "12 YEARS",
+      "period": "12 YEARS"
     },
     {
       "id": 4,
@@ -58,7 +58,7 @@
       "redus": "25,362",
       "moons": "27 MOONS",
       "distance": "2.9496 BILLION",
-      "period": "84 YEARS",
+      "period": "84 YEARS"
     },
     {
       "id": 5,
@@ -73,7 +73,7 @@
       "redus": "6,051.8",
       "moons": "0 MOONS",
       "distance": "107.1 MILLION",
-      "period": "225 DAYS",
+      "period": "225 DAYS"
     }
   ]
 }
