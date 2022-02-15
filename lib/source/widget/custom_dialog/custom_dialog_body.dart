@@ -82,7 +82,7 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                       const SizedBox(
                         height: 15,
                       ),
-                      Image.asset(AppImages.scale),
+                      Image.network(AppImages.scale),
                       const SizedBox(
                         height: 15,
                       ),
@@ -128,7 +128,7 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                       ),
                       SizedBox(
                           width: MediaQuery.of(context).size.width - 275,
-                          child: Image.asset(AppImages.diog)),
+                          child: Image.network(AppImages.diog)),
                       const SizedBox(
                         height: 15,
                       ),

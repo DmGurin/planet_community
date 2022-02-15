@@ -67,7 +67,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
                             Radius.circular(30),
                           ),
                         ),
-                        child: Image.asset(
+                        child: Image.network(
                           AppImages.temperature,
                           color: AppColors.lightBlue,
                         )),
@@ -112,7 +112,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.asset(AppImages.smalmars),
+                Image.network(AppImages.smalmars),
               ],
             ),
           ),

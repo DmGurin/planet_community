@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:planet_community/entity/planet_entity.dart';
+import 'package:planet_community/data/model/planet_model.dart';
 import 'package:planet_community/screens/earthquake_screen/earthquake_screen.dart';
 import 'package:planet_community/screens/planet_web_view.dart';
 import 'package:planet_community/screens/temperature_screen/temperature_screen.dart';
@@ -15,7 +15,7 @@ class ProfilePlanetScreen extends StatelessWidget {
     required this.planet,
   }) : super(key: key);
 
-  final PlanetEntity planet;
+  final PlanetModel planet;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class ProfilePlanetScreen extends StatelessWidget {
             const Spacer(),
             Stack(
               children: [
-                Image.asset(planet.largeImage),
+                Image.network(planet.largeImage),
                 Positioned(
                   top: 205,
                   right: 35,

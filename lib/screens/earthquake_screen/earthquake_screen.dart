@@ -75,7 +75,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                             Radius.circular(30),
                           ),
                         ),
-                        child: Image.asset(
+                        child: Image.network(
                           AppImages.quake,
                           color: AppColors.lightBlue,
                         )),
@@ -137,7 +137,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.asset(AppImages.smalmars),
+                Image.network(AppImages.smalmars),
               ],
             ),
           ),

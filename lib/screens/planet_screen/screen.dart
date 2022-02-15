@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planet_community/entity/planet_entity.dart';
+import 'package:planet_community/data/model/planet_model.dart';
 import 'package:planet_community/screens/planet_profile/screen.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
@@ -11,7 +11,7 @@ class PlanetScreen extends StatelessWidget {
     required this.planet,
   }) : super(key: key);
 
-  final PlanetEntity planet;
+  final PlanetModel planet;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class PlanetScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
-              Image.asset(planet.image),
+              Image.network(planet.image),
               const Spacer(flex: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
