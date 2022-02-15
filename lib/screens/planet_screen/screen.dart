@@ -1,19 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planet_community/source/constants.dart';
-import 'package:planet_community/source/images.dart';
+import 'package:planet_community/entity/planet_entity.dart';
+import 'package:planet_community/screens/planet_profile/screen.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
-import 'jupiter_profile/screen.dart';
+class PlanetScreen extends StatelessWidget {
+  const PlanetScreen({
+    Key? key,
+    required this.planet,
+  }) : super(key: key);
 
-class JupiterScreen extends StatefulWidget {
-  const JupiterScreen({Key? key}) : super(key: key);
+  final PlanetEntity planet;
 
-  @override
-  _JupiterScreenState createState() => _JupiterScreenState();
-}
-
-class _JupiterScreenState extends State<JupiterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,83 +37,88 @@ class _JupiterScreenState extends State<JupiterScreen> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 39, right: 39),
+          padding: const EdgeInsets.only(
+            left: 39.0,
+            right: 39.0,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
                 height: 35,
               ),
-              const Text(
-                'JUPITER',
+              Text(
+                planet.name,
                 style: AppTextStyle.textStyle69w700,
+                textAlign: TextAlign.center,
               ),
-              const Text(
-                'THE GAS PLANET',
+              Text(
+                planet.typePlanet,
                 style: AppTextStyle.textStyle14w700,
+                textAlign: TextAlign.center,
               ),
               const Spacer(),
-              Image.asset(AppImages.jupiter),
-              const Spacer(flex: 5,),
+              Image.asset(planet.image),
+              const Spacer(flex: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         'REDUS',
                         style: AppTextStyle.textStyle24w700,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
-                        '69,911 KM',
+                        '${planet.redus} KM',
                         style: AppTextStyle.textStyle18w700,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
-                      Text(
+                      const Text(
                         'MOONS',
                         style: AppTextStyle.textStyle24w700,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
-                        '79 MOONS',
+                        planet.moons,
                         style: AppTextStyle.textStyle18w700,
                       ),
                     ],
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         'DISTANCE FROM SUN',
                         style: AppTextStyle.textStyle24w700,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
-                        '746.89 MILLION KM',
+                        '${planet.distance} KM',
                         style: AppTextStyle.textStyle18w700,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
-                      Text(
+                      const Text(
                         'ORBITAL PERIOD',
                         style: AppTextStyle.textStyle24w700,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
-                        '12 YEARS',
+                        planet.period,
                         style: AppTextStyle.textStyle18w700,
                       ),
                     ],
@@ -125,7 +129,12 @@ class _JupiterScreenState extends State<JupiterScreen> {
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) =>  JupiterProfileScreen(index: planetList.length)));
+                    MaterialPageRoute(
+                      builder: (context) => ProfilePlanetScreen(
+                        planet: planet,
+                      ),
+                    ),
+                  );
                 },
                 child: Container(
                   child: const Center(
@@ -143,7 +152,8 @@ class _JupiterScreenState extends State<JupiterScreen> {
                         color: Colors.black.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 5,
-                        offset: const Offset(0, 1), // changes position of shadow
+                        offset:
+                            const Offset(0, 1), // changes position of shadow
                       ),
                     ],
                     gradient: const LinearGradient(
@@ -160,7 +170,7 @@ class _JupiterScreenState extends State<JupiterScreen> {
               ),
               const SizedBox(
                 height: 17,
-              )
+              ),
             ],
           ),
         ),

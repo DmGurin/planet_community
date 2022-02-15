@@ -11,5 +11,4 @@ class AppColors {
   static const greyy = Color(0xFF5B6975);
   static const botBlue = Color(0xFF032250);
   static const DialogTop = Color(0xFF021441);
-
 }

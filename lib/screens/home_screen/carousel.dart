@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:planet_community/screens/planet_screen.dart';
+import 'package:planet_community/screens/planet_screen/screen.dart';
 import 'package:planet_community/source/constants.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';

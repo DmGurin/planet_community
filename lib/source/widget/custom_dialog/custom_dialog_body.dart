@@ -5,7 +5,8 @@ import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
 class CustomDialogBody extends StatefulWidget {
-  const CustomDialogBody({Key? key,
+  const CustomDialogBody({
+    Key? key,
     required this.onTapRightButton,
     required this.onTapLeftButton,
     required this.minTemp,
@@ -57,7 +58,7 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pop(context);
                     widget.onTapLeftButton();
                   },
@@ -65,7 +66,7 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:  [
+                        children: [
                           SizedBox(
                               width: 100,
                               child: Text(
@@ -101,7 +102,7 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                 ),
                 const Spacer(),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pop(context);
                     widget.onTapRightButton();
                   },
@@ -109,7 +110,7 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:  [
+                        children: [
                           SizedBox(
                               width: 100,
                               child: Text(
@@ -146,5 +147,5 @@ class _CustomDialogBodyState extends State<CustomDialogBody> {
       ],
     );
   }
-  //void marsDialog (BuildContext context,  Function onTap){}
+//void marsDialog (BuildContext context,  Function onTap){}
 }

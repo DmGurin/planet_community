@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:planet_community/source/widget/custom_dialog/custom_dialog_body.dart';
 import 'package:planet_community/source/svg.dart';
+import 'package:planet_community/source/widget/custom_dialog/custom_dialog_body.dart';
 
 void customDialog({
   BuildContext? context,
@@ -27,7 +27,7 @@ void customDialog({
                   child: Dialog(
                     backgroundColor: Colors.transparent,
                     child: CustomDialogBody(
-                    onTapLeftButton: onTapLeftButton!,
+                      onTapLeftButton: onTapLeftButton!,
                       onTapRightButton: onTapRightButton!,
                       minTemp: minTemp!,
                       maxTemp: maxTemp!,
