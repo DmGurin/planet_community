@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "MARS",
-      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/5f14bce2fa15628439fd57f20a693397/bigmars.png",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/d014ceb22ea71d2f423b14789293e3fc/bigmars.png",
       "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/22f9ae63cac26833c559f32b6c8e4fbc/mars.png",
       "minTemp": "2",
       "maxTemp": "20",
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "name": "EARTH",
-      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/9f5548ba10cc6914e191933392a85f6e/bigearth.png",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/88fbbc608d0f42a9cfa7545d304ddc54/bigearth.png",
       "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/20a387f582f1df1a8fa505744f35a963/earth.png",
       "minTemp": "0",
       "maxTemp": "40",
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "name": "JUPITER",
-      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/8bc70dcd8ed540db35a24fa1f59a35b7/bigjupiter.png",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/cf0215d33978f4ac7764183349d4d251/bigjupiter.png",
       "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/7d3a3d467b7c6fd24fe9563797ed5f63/jupiter.png",
       "minTemp": "50",
       "maxTemp": "100",
@@ -48,7 +48,7 @@
     {
       "id": 4,
       "name": "URANUS",
-      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/d2fe82f4c46538fc3b7e1fa24165b18b/biguranus.png",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/af37eb2d7807493314d383af0bc54306/biguranus.png",
       "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/48144a836af2934be4648d1eeeef8cde/uranus.png",
       "minTemp": "0",
       "maxTemp": "20",
@@ -63,7 +63,7 @@
     {
       "id": 5,
       "name": "VENUS",
-      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/ccba030c0b24be87e197d5086c3c4adc/bigvenus.png",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/39493cf2485011c734a316101a35e102/bigvenus.png",
       "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/5c613ab1c320fd6865820175b6dbb405/venus.png",
       "minTemp": "50",
       "maxTemp": "150",
