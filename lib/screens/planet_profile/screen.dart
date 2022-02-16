@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:planet_community/data/model/planet_model.dart';
@@ -76,7 +77,14 @@ class ProfilePlanetScreen extends StatelessWidget {
             const Spacer(),
             Stack(
               children: [
-                Image.network(planet.largeImage),
+                CachedNetworkImage(
+                  imageUrl: planet.largeImage,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
+                ),
                 Positioned(
                   top: 205,
                   right: 35,
@@ -90,12 +98,12 @@ class ProfilePlanetScreen extends StatelessWidget {
                         maxQuake: '${planet.maxQuake}\u00b0',
                         onTapLeftButton: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const TemperatureScreen(),
+                            builder: (context) => TemperatureScreen( planet: planet),
                           ),
                         ),
                         onTapRightButton: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const EarthQuakeScreen(),
+                            builder: (context) =>  EarthQuakeScreen(planet: planet,),
                           ),
                         ),
                       );
@@ -139,12 +147,12 @@ class ProfilePlanetScreen extends StatelessWidget {
                         maxQuake: '${planet.maxQuake}\u00b0',
                         onTapLeftButton: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const TemperatureScreen(),
+                            builder: (context) =>  TemperatureScreen( planet: planet,),
                           ),
                         ),
                         onTapRightButton: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const EarthQuakeScreen(),
+                            builder: (context) =>  EarthQuakeScreen(planet: planet),
                           ),
                         ),
                       );

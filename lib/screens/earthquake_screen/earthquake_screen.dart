@@ -1,17 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:planet_community/data/model/planet_model.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class EarthQuakeScreen extends StatefulWidget {
-  const EarthQuakeScreen({Key? key}) : super(key: key);
+class EarthQuakeScreen extends StatelessWidget {
+  const EarthQuakeScreen({
+    Key? key,
+    required this.planet,
+  }) : super(key: key);
 
-  @override
-  _EarthQuakeScreenState createState() => _EarthQuakeScreenState();
-}
+  final PlanetModel planet;
 
-class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
   Future<void> _makePhoneCall(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -75,7 +77,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                             Radius.circular(30),
                           ),
                         ),
-                        child: Image.network(
+                        child: Image.asset(
                           AppImages.quake,
                           color: AppColors.lightBlue,
                         )),
@@ -95,9 +97,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                               child: InkWell(
                                   splashColor: Colors.red, // splash color
                                   onTap: () {
-                                    setState(() {
-                                      _makePhoneCall('tel:112');
-                                    });
+                                    _makePhoneCall('tel:123654478');
                                   },
                                   child: const Icon(Icons.call)),
                             ),
@@ -137,7 +137,12 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.network(AppImages.smalmars),
+                CachedNetworkImage(
+                  imageUrl: planet.image,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ],
             ),
           ),

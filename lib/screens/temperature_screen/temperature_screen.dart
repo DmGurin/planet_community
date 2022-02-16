@@ -1,16 +1,20 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:planet_community/data/model/planet_model.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 
-class TemperatureScreen extends StatefulWidget {
-  const TemperatureScreen({Key? key}) : super(key: key);
+class TemperatureScreen extends StatelessWidget {
+  const TemperatureScreen({Key? key,
+    required this.planet,
+  }) : super(key: key);
 
-  @override
-  _TemperatureScreenState createState() => _TemperatureScreenState();
-}
+  final PlanetModel planet;
 
-class _TemperatureScreenState extends State<TemperatureScreen> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +71,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
                             Radius.circular(30),
                           ),
                         ),
-                        child: Image.network(
+                        child: Image.asset(
                           AppImages.temperature,
                           color: AppColors.lightBlue,
                         )),
@@ -112,7 +116,13 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.network(AppImages.smalmars),
+            CachedNetworkImage(
+              imageUrl:
+              planet.image,
+              placeholder: (context, url) =>
+              const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
               ],
             ),
           ),

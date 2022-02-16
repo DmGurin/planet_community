@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:planet_community/data/model/planet_model.dart';
@@ -58,7 +59,14 @@ class PlanetScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
-              Image.network(planet.image),
+              CachedNetworkImage(
+                imageUrl: planet.image,
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+              ),
               const Spacer(flex: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
