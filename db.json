@@ -74,6 +74,66 @@
       "moons": "0 MOONS",
       "distance": "107.1 MILLION",
       "period": "225 DAYS"
-    }
+    },
+    {
+      "id": 6,
+      "name": "MERCURY",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/364a2cdc6857d55766cdc0d8be047925/bigvenus.png",
+      "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/29e721635f0f8795ab21ebb4ecd65ec1/venus.png",
+      "minTemp": "50",
+      "maxTemp": "150",
+      "minQuake": "8",
+      "maxQuake": "9",
+      "typePlanet": "GOLWING PLANET",
+      "redus": "6,051.8",
+      "moons": "0 MOONS",
+      "distance": "107.1 MILLION",
+      "period": "225 DAYS"
+    },
+    {
+      "id": 7,
+      "name": "SUN",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/364a2cdc6857d55766cdc0d8be047925/bigvenus.png",
+      "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/29e721635f0f8795ab21ebb4ecd65ec1/venus.png",
+      "minTemp": "10 K",
+      "maxTemp": "500 K",
+      "minQuake": "20 K",
+      "maxQuake": "60 K",
+      "typePlanet": "STAR",
+      "redus": "1 392 700 MILLION",
+      "moons": "ALL COMMUNITY",
+      "distance": "0",
+      "period": "0"
+    },
+    {
+      "id": 5,
+      "name": "VENUS",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/364a2cdc6857d55766cdc0d8be047925/bigvenus.png",
+      "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/29e721635f0f8795ab21ebb4ecd65ec1/venus.png",
+      "minTemp": "50",
+      "maxTemp": "150",
+      "minQuake": "8",
+      "maxQuake": "9",
+      "typePlanet": "GOLWING PLANET",
+      "redus": "6,051.8",
+      "moons": "0 MOONS",
+      "distance": "107.1 MILLION",
+      "period": "225 DAYS"
+    },
+    {
+      "id": 5,
+      "name": "VENUS",
+      "largeImage": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/364a2cdc6857d55766cdc0d8be047925/bigvenus.png",
+      "image": "https://sprutio.beget.com/image_cache/free16.beget:9443/z900349y/29e721635f0f8795ab21ebb4ecd65ec1/venus.png",
+      "minTemp": "50",
+      "maxTemp": "150",
+      "minQuake": "8",
+      "maxQuake": "9",
+      "typePlanet": "GOLWING PLANET",
+      "redus": "6,051.8",
+      "moons": "0 MOONS",
+      "distance": "107.1 MILLION",
+      "period": "225 DAYS"
+    },
   ]
 }
