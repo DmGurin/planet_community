@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "MARS",
-      "largeImage": "https://imageup.ru/img82/3883489/bigearth.png?nc",
-      "image": "https://imageup.ru/img82/3883489/bigearth.png?nc",
+      "largeImage": "https://imageup.ru/img208/3883491/sun.png?nc",
+      "image": "https://imageup.ru/img208/3883491/sun.png?nc",
       "minTemp": "2",
       "maxTemp": "20",
       "minQuake": "3",
