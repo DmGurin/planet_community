@@ -81,36 +81,41 @@ class EarthQuakeScreen extends StatelessWidget {
                           AppImages.quake,
                           color: AppColors.lightBlue,
                         )),
-                    Column(
-                      children: [
-                        const Text('EARTHQUAKE THIS WEEK',
-                            style: AppTextStyle.textStyle26w700),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox.fromSize(
-                          size: const Size(40, 40),
-                          child: ClipOval(
-                            child: Material(
-                              elevation: 2,
-                              color: AppColors.lightBlue,
-                              child: InkWell(
-                                  splashColor: Colors.red, // splash color
-                                  onTap: () {
-                                    _makePhoneCall('tel:123654478');
-                                  },
-                                  child: const Icon(Icons.call)),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Text('EARTHQUAKE THIS WEEK',
+                              style: AppTextStyle.textStyle26w700),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox.fromSize(
+                            size: const Size(40, 40),
+                            child: ClipOval(
+                              child: Material(
+                                elevation: 2,
+                                color: AppColors.lightBlue,
+                                child: InkWell(
+                                    splashColor: Colors.red, // splash color
+                                    onTap: () {
+                                      _makePhoneCall('tel:123654478');
+                                    },
+                                    child: const Icon(Icons.call)),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          'Contact with us',
-                          style: AppTextStyle.textStyle18w700,
-                        )
-                      ],
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            'Contact with us',
+                            style: AppTextStyle.textStyle18w700,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -41,13 +41,15 @@ class PlanetScreen extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 39.0,
             right: 39.0,
+            bottom: 17,
+            top: 20,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(
-                height: 35,
-              ),
+              // const SizedBox(
+              //   height: 35,
+              // ),
               Text(
                 planet.name,
                 style: AppTextStyle.textStyle69w700,
@@ -58,14 +60,14 @@ class PlanetScreen extends StatelessWidget {
                 style: AppTextStyle.textStyle14w700,
                 textAlign: TextAlign.center,
               ),
-              const Spacer(),
+              const Spacer(flex: 5),
               CachedNetworkImage(
                 imageUrl: planet.image,
                 placeholder: (context, url) =>
                     const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width * 0.5,
               ),
               const Spacer(flex: 5),
               Row(
@@ -79,21 +81,21 @@ class PlanetScreen extends StatelessWidget {
                         style: AppTextStyle.textStyle24w700,
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 5,
                       ),
                       Text(
                         '${planet.redus} KM',
                         style: AppTextStyle.textStyle18w700,
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 20,
                       ),
                       const Text(
                         'MOONS',
                         style: AppTextStyle.textStyle24w700,
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 5,
                       ),
                       Text(
                         planet.moons,
@@ -109,21 +111,21 @@ class PlanetScreen extends StatelessWidget {
                         style: AppTextStyle.textStyle24w700,
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 5,
                       ),
                       Text(
                         '${planet.distance} KM',
                         style: AppTextStyle.textStyle18w700,
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 20,
                       ),
                       const Text(
                         'ORBITAL PERIOD',
                         style: AppTextStyle.textStyle24w700,
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 5,
                       ),
                       Text(
                         planet.period,
@@ -133,7 +135,8 @@ class PlanetScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const Spacer(),
+              const Spacer(flex: 5),
+
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -176,9 +179,9 @@ class PlanetScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 17,
-              ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
             ],
           ),
         ),

@@ -19,13 +19,13 @@ class CarouselScreen extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(
-          height: 80,
+          height: 90,
         ),
         const Text(
           'SOLAR SYSTEM',
           style: AppTextStyle.textStyle69w700,
         ),
-        const Spacer(),
+        //const Spacer(),
         const Divider(
           endIndent: 10,
           indent: 10,
@@ -33,7 +33,7 @@ class CarouselScreen extends StatelessWidget {
           thickness: 0.8,
           color: AppColors.grey,
         ),
-        const Spacer(),
+       // const Spacer(),
         Text(
           'JOIN THE JOURNEY',
           style: AppTextStyle.textStyle24w700.copyWith(color: Colors.white),
@@ -91,9 +91,9 @@ class CarouselScreen extends StatelessWidget {
           },
         ),
         const Spacer(),
-        const SizedBox(
-          height: 40,
-        ),
+        // const SizedBox(
+        //   height: 100,
+        // ),
       ],
     );
   }

@@ -75,8 +75,13 @@ class TemperatureScreen extends StatelessWidget {
                           AppImages.temperature,
                           color: AppColors.lightBlue,
                         )),
-                    const Text('TEMPERATURE THIS WEEK',
-                        style: AppTextStyle.textStyle26w700),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Expanded(
+                      child: Text('TEMPERATURE THIS WEEK',
+                          style: AppTextStyle.textStyle26w700),
+                    ),
                   ],
                 ),
                 const SizedBox(

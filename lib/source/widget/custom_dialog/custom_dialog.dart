@@ -20,37 +20,29 @@ void customDialog({
         return Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 50),
-                  child: Dialog(
-                    backgroundColor: Colors.transparent,
-                    child: CustomDialogBody(
-                      onTapLeftButton: onTapLeftButton!,
-                      onTapRightButton: onTapRightButton!,
-                      minTemp: minTemp!,
-                      maxTemp: maxTemp!,
-                      minQuake: minQuake!,
-                      maxQuake: maxQuake!,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  left: 170,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: SvgPicture.asset(AppSvg.cross),
-                    ),
-                  ),
-                ),
-              ],
+            Dialog(
+              backgroundColor: Colors.transparent,
+              child: CustomDialogBody(
+                onTapLeftButton: onTapLeftButton!,
+                onTapRightButton: onTapRightButton!,
+                minTemp: minTemp!,
+                maxTemp: maxTemp!,
+                minQuake: minQuake!,
+                maxQuake: maxQuake!,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: SizedBox(
+                height: 50,
+                width: 50,
+                child: SvgPicture.asset(AppSvg.cross),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         );
