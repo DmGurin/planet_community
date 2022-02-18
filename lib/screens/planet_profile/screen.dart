@@ -21,10 +21,11 @@ class ProfilePlanetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(30.0),
+        preferredSize: const Size.fromHeight(50.0),
         child: AppBar(
-          backgroundColor: AppColors.darkBlue,
+          backgroundColor: Colors.transparent,
           elevation: 0.0,
         ),
       ),
@@ -35,7 +36,7 @@ class ProfilePlanetScreen extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                AppColors.darkBlue,
+                AppColors.blue,
                 AppColors.darkGrey,
               ],
             ),
@@ -43,6 +44,9 @@ class ProfilePlanetScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              const SizedBox(
+                height: 70,
+              ),
               Text(
                 planet.name,
                 style: AppTextStyle.textStyle96w700,
@@ -50,6 +54,9 @@ class ProfilePlanetScreen extends StatelessWidget {
               Text(
                 planet.typePlanet,
                 style: AppTextStyle.textStyle18w700,
+              ),
+              const SizedBox(
+                height: 10,
               ),
               GestureDetector(
                 onTap: () => Navigator.push(
@@ -59,20 +66,21 @@ class ProfilePlanetScreen extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  child: const Center(
-                    child: Text(
-                      '360 VIEW',
-                      style: AppTextStyle.textStyle18w700,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  width: 39,
-                  height: 40,
+                  padding: const EdgeInsets.all(4),
+                  width: 50,
+                  height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(width: 0.9, color: AppColors.white),
                     borderRadius: const BorderRadius.all(Radius.circular(100)),
                   ),
+                  child: const Center(
+                    child: Text(
+                      '360\nVIEW',
+                      style: AppTextStyle.textStyle18w700,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
                 ),
               ),
               Stack(
@@ -80,7 +88,7 @@ class ProfilePlanetScreen extends StatelessWidget {
                   CachedNetworkImage(
                     imageUrl: planet.largeImage,
                     placeholder: (context, url) =>
-                        const CircularProgressIndicator(),
+                        const Center(child:  CircularProgressIndicator()),
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                     fit: BoxFit.fitHeight,
                     width: MediaQuery.of(context).size.width,
@@ -124,7 +132,7 @@ class ProfilePlanetScreen extends StatelessWidget {
                                     0, 1), // changes position of shadow
                               ),
                             ],
-                            color: AppColors.botBlue,
+                            color: AppColors.blue,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(100))),
                         child: Center(
@@ -173,7 +181,7 @@ class ProfilePlanetScreen extends StatelessWidget {
                                     0, 1), // changes position of shadow
                               ),
                             ],
-                            color: AppColors.botBlue,
+                            color: AppColors.blue,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(100))),
                         child: Center(

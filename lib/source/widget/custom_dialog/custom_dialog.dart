@@ -13,23 +13,28 @@ void customDialog({
   String? maxQuake,
 }) {
   showDialog(
-      context: context!,
-      barrierColor: Colors.transparent,
-      barrierDismissible: true,
-      builder: (context) {
-        return Column(
+    context: context!,
+    barrierDismissible: true,
+    builder: (context) {
+      return Dialog(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        alignment: Alignment.bottomCenter,
+        insetPadding: const EdgeInsets.all(20),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Dialog(
-              backgroundColor: Colors.transparent,
-              child: CustomDialogBody(
-                onTapLeftButton: onTapLeftButton!,
-                onTapRightButton: onTapRightButton!,
-                minTemp: minTemp!,
-                maxTemp: maxTemp!,
-                minQuake: minQuake!,
-                maxQuake: maxQuake!,
-              ),
+            CustomDialogBody(
+              onTapLeftButton: onTapLeftButton!,
+              onTapRightButton: onTapRightButton!,
+              minTemp: minTemp!,
+              maxTemp: maxTemp!,
+              minQuake: minQuake!,
+              maxQuake: maxQuake!,
+            ),
+            const SizedBox(
+              height: 20,
             ),
             GestureDetector(
               onTap: () {
@@ -41,10 +46,9 @@ void customDialog({
                 child: SvgPicture.asset(AppSvg.cross),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
           ],
-        );
-      });
+        ),
+      );
+    },
+  );
 }

@@ -28,7 +28,7 @@ class EarthQuakeScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(30.0),
         child: AppBar(
-          backgroundColor: AppColors.darkBlue,
+          backgroundColor: AppColors.blue,
           elevation: 0.0,
         ),
       ),
@@ -39,7 +39,7 @@ class EarthQuakeScreen extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                AppColors.darkBlue,
+                AppColors.blue,
                 AppColors.darkGrey,
               ],
             ),
@@ -60,7 +60,7 @@ class EarthQuakeScreen extends StatelessWidget {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              AppColors.DialogTop.withOpacity(0.75),
+                              AppColors.darkBlue.withOpacity(0.75),
                               AppColors.black.withOpacity(1),
                             ],
                           ),
@@ -79,7 +79,7 @@ class EarthQuakeScreen extends StatelessWidget {
                         ),
                         child: Image.asset(
                           AppImages.quake,
-                          color: AppColors.lightBlue,
+                          color: AppColors.turquoise,
                         )),
                     const SizedBox(
                       width: 10,
@@ -97,7 +97,7 @@ class EarthQuakeScreen extends StatelessWidget {
                             child: ClipOval(
                               child: Material(
                                 elevation: 2,
-                                color: AppColors.lightBlue,
+                                color: AppColors.turquoise,
                                 child: InkWell(
                                     splashColor: Colors.red, // splash color
                                     onTap: () {

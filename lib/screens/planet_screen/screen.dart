@@ -17,42 +17,37 @@ class PlanetScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'PLANETA',
-          style: AppTextStyle.textStyle16w700,
-        ),
-        backgroundColor: AppColors.darkBlue,
+        backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              AppColors.darkBlue,
-              AppColors.darkGrey,
-            ],
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 39.0,
-            right: 39.0,
-            bottom: 17,
-            top: 20,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(40, 50, 40, 40),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                AppColors.blue,
+                AppColors.darkGrey,
+              ],
+            ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              // const SizedBox(
-              //   height: 35,
-              // ),
+              const Text(
+                'PLANET',
+                style: AppTextStyle.textStyle16w700,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               Text(
                 planet.name,
-                style: AppTextStyle.textStyle69w700,
+                style: AppTextStyle.textStyle64w700,
                 textAlign: TextAlign.center,
               ),
               Text(
@@ -60,16 +55,20 @@ class PlanetScreen extends StatelessWidget {
                 style: AppTextStyle.textStyle14w700,
                 textAlign: TextAlign.center,
               ),
-              const Spacer(flex: 5),
+              const SizedBox(
+                height: 20,
+              ),
               CachedNetworkImage(
                 imageUrl: planet.image,
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
+                placeholder: (context, url) => const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width * 0.5,
+                width: MediaQuery.of(context).size.width * 0.7,
+                height: MediaQuery.of(context).size.width * 0.7,
               ),
-              const Spacer(flex: 5),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -135,8 +134,9 @@ class PlanetScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const Spacer(flex: 5),
-
+              const SizedBox(
+                height: 30,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -148,40 +148,38 @@ class PlanetScreen extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       'START TOUR',
-                      style: AppTextStyle.textStyle18w700,
+                      style: AppTextStyle.textStyle18w700.copyWith(
+                        letterSpacing: 1.5,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  width: 131,
-                  height: 47,
+                  width: double.infinity,
+                  height: 50,
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.5),
                         spreadRadius: 1,
                         blurRadius: 5,
-                        offset:
-                            const Offset(0, 1), // changes position of shadow
+                        offset: const Offset(0, 1), // changes position of shadow
                       ),
                     ],
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        AppColors.lightBlue,
+                        AppColors.blue,
                         AppColors.darkBlue,
                       ],
                     ),
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
             ],
           ),
         ),

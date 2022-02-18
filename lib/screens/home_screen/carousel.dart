@@ -18,22 +18,23 @@ class CarouselScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 90,
+        const Padding(
+          padding: EdgeInsets.fromLTRB(10, 60, 10, 20),
+          child: Text(
+            'SOLAR SYSTEM',
+            style: AppTextStyle.textStyle64w700,
+          ),
         ),
-        const Text(
-          'SOLAR SYSTEM',
-          style: AppTextStyle.textStyle69w700,
-        ),
-        //const Spacer(),
         const Divider(
           endIndent: 10,
           indent: 10,
-          height: 40,
+          height: 1,
           thickness: 0.8,
           color: AppColors.grey,
         ),
-       // const Spacer(),
+        const SizedBox(
+          height: 20,
+        ),
         Text(
           'JOIN THE JOURNEY',
           style: AppTextStyle.textStyle24w700.copyWith(color: Colors.white),
@@ -47,7 +48,6 @@ class CarouselScreen extends StatelessWidget {
           ),
           itemCount: planetModelList.length,
           itemBuilder: (ctx, int index, _) {
-            int oldIndex = index;
             return GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -58,42 +58,34 @@ class CarouselScreen extends StatelessWidget {
                     ),
                   ),
                 );
-                Navigator.of(context);
               },
-              child: Container(
-                margin: const EdgeInsets.all(5.0),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Opacity(
-                      opacity: oldIndex == index ? 1 : 0.5,
-                      child: CachedNetworkImage(
-                        imageUrl: planetModelList[index].image,
-                        placeholder: (context, url) => const CircularProgressIndicator(),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                        fit: BoxFit.cover,
-                        width: MediaQuery.of(context).size.width * 0.7,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CachedNetworkImage(
+                    imageUrl: planetModelList[index].image,
+                    placeholder: (context, url) => const Center(
+                      child: SizedBox(
+                        height: 40,
+                        width: 40,
+                        child: CircularProgressIndicator(),
                       ),
                     ),
-                    Positioned(
-                      bottom: 0.0,
-                      child: Text(
-                        planetModelList[index].name,
-                        style: AppTextStyle.textStyle24w700
-                            .copyWith(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                    fit: BoxFit.cover,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                  ),
+                  Text(
+                    planetModelList[index].name,
+                    style: AppTextStyle.textStyle24w700
+                        .copyWith(color: Colors.white),
+                  ),
+                ],
               ),
             );
           },
         ),
-        const Spacer(),
-        // const SizedBox(
-        //   height: 100,
-        // ),
       ],
     );
   }

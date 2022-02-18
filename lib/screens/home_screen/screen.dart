@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:planet_community/data/model/planet_model.dart';
 import 'package:planet_community/repo/repository.dart';
 import 'package:planet_community/style/app_colors.dart';
-import 'package:planet_community/style/app_text_styles.dart';
 
 import 'carousel.dart';
 
@@ -21,7 +20,7 @@ class HomeScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              AppColors.darkBlue,
+              AppColors.blue,
               AppColors.darkGrey,
             ],
           ),
@@ -41,8 +40,11 @@ class HomeScreen extends StatelessWidget {
                     size: 60,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 16),
-                    child: Text('Error: ${snapShot.error}', style: AppTextStyle.textStyle14w700,),
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      'Error: ${snapShot.error}',
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 ],
               );
