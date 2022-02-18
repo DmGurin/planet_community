@@ -83,6 +83,9 @@ class ProfilePlanetScreen extends StatelessWidget {
 
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
               Stack(
                 children: [
                   CachedNetworkImage(

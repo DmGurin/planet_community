@@ -39,9 +39,10 @@ class CarouselScreen extends StatelessWidget {
           'JOIN THE JOURNEY',
           style: AppTextStyle.textStyle24w700.copyWith(color: Colors.white),
         ),
+        const Spacer(),
         CarouselSlider.builder(
           options: CarouselOptions(
-            viewportFraction: 0.5,
+            viewportFraction: 0.7,
             autoPlay: true,
             aspectRatio: 1.0,
             enlargeCenterPage: true,
@@ -86,6 +87,7 @@ class CarouselScreen extends StatelessWidget {
             );
           },
         ),
+        const Spacer(),
       ],
     );
   }
