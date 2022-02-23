@@ -3,8 +3,7 @@
     {
       "id": 1,
       "name": "MARS",
-      "largeImage": "https://imageup.ru/img226/3883496/bigmars.png
-      ",
+      "largeImage": "https://imageup.ru/img226/3883496/bigmars.png",
       "image": "https://imageup.ru/img192/3883504/mars.png",
       "minTemp": "2",
       "maxTemp": "20",
