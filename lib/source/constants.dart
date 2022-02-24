@@ -1,6 +1,8 @@
 import 'package:planet_community/entity/planet_entity.dart';
 import 'package:planet_community/source/images.dart';
 
+var baseUrl = 'https://my-json-server.typicode.com/DmGurin/planet_community/';
+
 List<PlanetEntity> planetList = [
   PlanetEntity(
     name: 'MARS',

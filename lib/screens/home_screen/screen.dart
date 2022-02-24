@@ -6,9 +6,21 @@ import 'package:planet_community/style/app_colors.dart';
 
 import 'carousel.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Future<List<PlanetModel>>? future;
+
+  @override
+  void initState() {
+    future = Repository().getPlanet();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +38,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         child: FutureBuilder<List<PlanetModel>>(
-          future: Repository().getPlanet(),
-          builder: (context, snapShot) {
+          future: future!,
+          builder: (context, AsyncSnapshot<List<PlanetModel>> snapShot) {
             if (snapShot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             } else if (snapShot.hasError) {

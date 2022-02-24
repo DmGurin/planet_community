@@ -63,7 +63,7 @@ class PlanetScreen extends StatelessWidget {
                 imageUrl: planet.image,
                 placeholder: (context, url) => const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             const SizedBox(

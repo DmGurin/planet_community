@@ -1,7 +1,10 @@
 import 'dart:convert';
 
 List<PlanetModel> planetModelFromJson(String str) => List<PlanetModel>.from(
-    json.decode(str).map((x) => PlanetModel.fromJson(x)));
+      jsonDecode(str).map(
+        (x) => PlanetModel.fromJson(x),
+      ),
+    );
 
 String planetModelToJson(List<PlanetModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
@@ -38,34 +41,34 @@ class PlanetModel {
   final String period;
 
   factory PlanetModel.fromJson(Map<String, dynamic> json) => PlanetModel(
-    id: json["id"],
-    name: json["name"],
-    largeImage: json["largeImage"],
-    image: json["image"],
-    minTemp: json["minTemp"],
-    maxTemp: json["maxTemp"],
-    minQuake: json["minQuake"],
-    maxQuake: json["maxQuake"],
-    typePlanet: json["typePlanet"],
-    redus: json["redus"],
-    moons: json["moons"],
-    distance: json["distance"],
-    period: json["period"],
-  );
+        id: json["id"],
+        name: json["name"],
+        largeImage: json["largeImage"],
+        image: json["image"],
+        minTemp: json["minTemp"],
+        maxTemp: json["maxTemp"],
+        minQuake: json["minQuake"],
+        maxQuake: json["maxQuake"],
+        typePlanet: json["typePlanet"],
+        redus: json["redus"],
+        moons: json["moons"],
+        distance: json["distance"],
+        period: json["period"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "largeImage": largeImage,
-    "image": image,
-    "minTemp": minTemp,
-    "maxTemp": maxTemp,
-    "minQuake": minQuake,
-    "maxQuake": maxQuake,
-    "typePlanet": typePlanet,
-    "redus": redus,
-    "moons": moons,
-    "distance": distance,
-    "period": period,
-  };
+        "id": id,
+        "name": name,
+        "largeImage": largeImage,
+        "image": image,
+        "minTemp": minTemp,
+        "maxTemp": maxTemp,
+        "minQuake": minQuake,
+        "maxQuake": maxQuake,
+        "typePlanet": typePlanet,
+        "redus": redus,
+        "moons": moons,
+        "distance": distance,
+        "period": period,
+      };
 }
