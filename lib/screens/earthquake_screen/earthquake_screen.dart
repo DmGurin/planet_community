@@ -1,17 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:planet_community/data/model/planet_model.dart';
 import 'package:planet_community/source/images.dart';
 import 'package:planet_community/style/app_colors.dart';
 import 'package:planet_community/style/app_text_styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class EarthQuakeScreen extends StatefulWidget {
-  const EarthQuakeScreen({Key? key}) : super(key: key);
+class EarthQuakeScreen extends StatelessWidget {
+  const EarthQuakeScreen({
+    Key? key,
+    required this.planet,
+  }) : super(key: key);
 
-  @override
-  _EarthQuakeScreenState createState() => _EarthQuakeScreenState();
-}
+  final PlanetModel planet;
 
-class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
   Future<void> _makePhoneCall(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -26,7 +28,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(30.0),
         child: AppBar(
-          backgroundColor: AppColors.darkBlue,
+          backgroundColor: AppColors.blue,
           elevation: 0.0,
         ),
       ),
@@ -37,7 +39,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                AppColors.darkBlue,
+                AppColors.blue,
                 AppColors.darkGrey,
               ],
             ),
@@ -58,7 +60,7 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              AppColors.DialogTop.withOpacity(0.75),
+                              AppColors.darkBlue.withOpacity(0.75),
                               AppColors.black.withOpacity(1),
                             ],
                           ),
@@ -77,40 +79,43 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                         ),
                         child: Image.asset(
                           AppImages.quake,
-                          color: AppColors.lightBlue,
+                          color: AppColors.turquoise,
                         )),
-                    Column(
-                      children: [
-                        const Text('EARTHQUAKE THIS WEEK',
-                            style: AppTextStyle.textStyle26w700),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox.fromSize(
-                          size: const Size(40, 40),
-                          child: ClipOval(
-                            child: Material(
-                              elevation: 2,
-                              color: AppColors.lightBlue,
-                              child: InkWell(
-                                  splashColor: Colors.red, // splash color
-                                  onTap: () {
-                                    setState(() {
-                                      _makePhoneCall('tel:112');
-                                    });
-                                  },
-                                  child: const Icon(Icons.call)),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Text('EARTHQUAKE THIS WEEK',
+                              style: AppTextStyle.textStyle26w700),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox.fromSize(
+                            size: const Size(40, 40),
+                            child: ClipOval(
+                              child: Material(
+                                elevation: 2,
+                                color: AppColors.turquoise,
+                                child: InkWell(
+                                    splashColor: Colors.red, // splash color
+                                    onTap: () {
+                                      _makePhoneCall('tel:123654478');
+                                    },
+                                    child: const Icon(Icons.call)),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          'Contact with us',
-                          style: AppTextStyle.textStyle18w700,
-                        )
-                      ],
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            'Contact with us',
+                            style: AppTextStyle.textStyle18w700,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -137,7 +142,12 @@ class _EarthQuakeScreenState extends State<EarthQuakeScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.asset(AppImages.smalmars),
+                CachedNetworkImage(
+                  imageUrl: planet.image,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ],
             ),
           ),

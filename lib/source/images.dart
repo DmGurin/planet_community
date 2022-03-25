@@ -9,7 +9,7 @@ class AppImages {
   static const biguranus = 'assets/images/biguranus.png';
   static const venus = 'assets/images/venus.png';
   static const bigvenus = 'assets/images/bigvenus.png';
-  static const diog = 'assets/images/diog.png';
+  static const diag = 'assets/images/diog.png';
   static const scale = 'assets/images/scale.png';
   static const figa = 'assets/images/figa.png';
   static const quake = 'assets/images/quake.png';

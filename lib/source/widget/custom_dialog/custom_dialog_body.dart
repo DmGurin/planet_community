@@ -28,123 +28,117 @@ class CustomDialogBody extends StatefulWidget {
 class _CustomDialogBodyState extends State<CustomDialogBody> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: 150,
-          width: MediaQuery.of(context).size.width + 300,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                AppColors.DialogTop,
-                AppColors.black,
-              ],
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                spreadRadius: 0.05,
-                blurRadius: 0.5,
-                offset: Offset(0, 1),
-              ),
-            ],
-            borderRadius: BorderRadius.all(Radius.circular(30)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                    widget.onTapLeftButton();
-                  },
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                              width: 100,
-                              child: Text(
-                                widget.minTemp,
-                                style: AppTextStyle.textStyle14w700,
-                              )),
-                          Text(
-                            widget.maxTemp,
-                            style: AppTextStyle.textStyle14w700,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Image.asset(AppImages.scale),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        'TEMPERATURE THIS WEEK',
-                        style: AppTextStyle.textStyle14w700
-                            .copyWith(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  width: 1,
-                  height: double.infinity,
-                  color: AppColors.greyy,
-                ),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                    widget.onTapRightButton();
-                  },
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                              width: 100,
-                              child: Text(
-                                widget.maxQuake,
-                                style: AppTextStyle.textStyle14w700,
-                              )),
-                          Text(
-                            widget.minQuake,
-                            style: AppTextStyle.textStyle14w700,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width - 275,
-                          child: Image.asset(AppImages.diog)),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        'EARTHQUAKE THIS WEEK',
-                        style: AppTextStyle.textStyle14w700
-                            .copyWith(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+    return Container(
+      padding: const EdgeInsets.all(15.0),
+      height: 150,
+      width: MediaQuery.of(context).size.width - 40,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            AppColors.blue,
+            AppColors.darkBlue,
+          ],
         ),
-      ],
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+                widget.onTapLeftButton();
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        widget.minTemp,
+                        style: AppTextStyle.textStyle14w700,
+                      ),
+                      Text(
+                        widget.maxTemp,
+                        style: AppTextStyle.textStyle14w700,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: Center(child: Image.asset(AppImages.scale),),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'TEMPERATURE THIS WEEK',
+                    style: AppTextStyle.textStyle14w700
+                        .copyWith(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            width: 1,
+            height: double.infinity,
+            color: AppColors.greyy,
+          ),
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+                widget.onTapRightButton();
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        widget.maxQuake,
+                        style: AppTextStyle.textStyle14w700,
+                      ),
+                      Text(
+                        widget.minQuake,
+                        style: AppTextStyle.textStyle14w700,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: Center(child: Image.asset(AppImages.diag),),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'EARTHQUAKE THIS WEEK',
+                    style: AppTextStyle.textStyle14w700.copyWith(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 //void marsDialog (BuildContext context,  Function onTap){}

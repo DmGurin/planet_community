@@ -8,10 +8,10 @@ class AppTextStyle {
     fontSize: 96,
     color: AppColors.white,
   );
-  static const textStyle69w700 = TextStyle(
+  static const textStyle64w700 = TextStyle(
     fontFamily: 'BebasNeue',
     fontWeight: FontWeight.w700,
-    fontSize: 69,
+    fontSize: 64,
     color: AppColors.white,
   );
   static const textStyle14w700 = TextStyle(
